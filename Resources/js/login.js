@@ -11,8 +11,13 @@
 
 function login(){
 
-	var input = prompt("Inserisci il tuo username");
-	if (input){
+	var inputName = $('#login-name').val();
+	var inputPass = $('#login-password').val();
+
+	alert(inputName + " " + inputPass);
+	
+
+	/*if (input){
 		var data = Ti.Database.openFile(Ti.App.appURLToPath("app://data/users.db"));
 		var row = data.execute("select * from users where username = ?", input);
 		var user = row.fieldByName("username");
@@ -38,7 +43,7 @@ function login(){
 	} else {
 
 		alert("Username errato!");
-	}
+	}*/
 
 }
 
