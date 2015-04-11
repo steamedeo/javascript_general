@@ -9,41 +9,44 @@
 			}
 }*/
 
+function onLoad(){
+
+	var win = Ti.UI.currentWindow;
+
+	win.setHeight(473);
+	win.setWidth(656);
+
+}
+
 function login(){
 
 	var inputName = $('#login-name').val();
 	var inputPass = $('#login-password').val();
 
-	alert(inputName + " " + inputPass);
+	//alert(inputName + " " + inputPass);
 	
-
-	/*if (input){
+	if ((inputName) && (inputPass)){
 		var data = Ti.Database.openFile(Ti.App.appURLToPath("app://data/users.db"));
-		var row = data.execute("select * from users where username = ?", input);
+		var row = data.execute("SELECT * from users WHERE username = ? AND password = ?", inputName, inputPass);
 		var user = row.fieldByName("username");
-		var id = row.fieldByName("id");
+		var id = row.fieldByName("_kp_id");
 		var pass = row.fieldByName("password");
 		if (row.isValidRow()) {
-				var input2 = prompt("Inserisci la tua password " + user);
-				if (input2 === pass){
-					//Login Riuscito
-					alert("Login riuscito!");
 
-					window.location.replace("app://home.html");
+				window.location.replace("app://home.html");
 
-				} else {
+				var win = Ti.UI.currentWindow;
 
-					alert("Password errata!")
-				}
+				win.maximize();
 
 			} else {
-				alert("Username errato!")
+				alert("Wrong Credentials!");
 			}
 
 	} else {
 
-		alert("Username errato!");
-	}*/
+		alert("Wrong Credentials!");
+	}
 
 }
 
